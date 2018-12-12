@@ -77,6 +77,7 @@
 
 
 // Constructor
+
 function Book(title, author, year) {
     this.title = title;
     this.author = author;
@@ -96,6 +97,13 @@ function Magazine(title, author, year, month) {
     this.month = month;
 }
 
+//Inherit Prototype
+Magazine.prototype = Object.create(Book.prototype);
+
 // Instantiate Magazine
 const mag1 = new Magazine('Mag One', 'John Doe', '2018', 'Jan');
+
+// Use Magazine Constructor
+Magazine.prototype.constructor = Magazine;
+
 console.log(mag1);
